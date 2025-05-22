@@ -18,6 +18,7 @@ metadata:
   name: checkoutservice
   labels:
     app: checkoutservice
+    service: kuku
 spec:
   selector:
     matchLabels:

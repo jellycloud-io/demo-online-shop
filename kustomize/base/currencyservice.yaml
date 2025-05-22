@@ -26,6 +26,7 @@ spec:
     metadata:
       labels:
         app: currencyservice
+        app.jellycloud.io/name: currencyservice
     spec:
       serviceAccountName: currencyservice
       terminationGracePeriodSeconds: 5
@@ -75,7 +76,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: currencyservice
+    app.jellycloud.io/name: currencyservice
   ports:
   - name: grpc
     port: 7000

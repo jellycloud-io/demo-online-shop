@@ -26,6 +26,7 @@ spec:
     metadata:
       labels:
         app: checkoutservice
+        app.jellycloud.io/name: checkoutservice
     spec:
       serviceAccountName: checkoutservice
       securityContext:
@@ -83,7 +84,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: checkoutservice
+    app.jellycloud.io/name: checkoutservice
   ports:
   - name: grpc
     port: 5050
