@@ -26,6 +26,7 @@ spec:
     metadata:
       labels:
         app: shippingservice
+        app.jellycloud.io/name: shippingservice
     spec:
       serviceAccountName: shippingservice
       securityContext:
@@ -74,7 +75,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: shippingservice
+    app.jellycloud.io/name: shippingservice
   ports:
   - name: grpc
     port: 50051

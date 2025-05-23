@@ -26,6 +26,7 @@ spec:
     metadata:
       labels:
         app: cartservice
+        app.jellycloud.io/name: cartservice
     spec:
       serviceAccountName: cartservice
       terminationGracePeriodSeconds: 5
@@ -75,7 +76,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: cartservice
+    app.jellycloud.io/name: cartservice
   ports:
   - name: grpc
     port: 7070

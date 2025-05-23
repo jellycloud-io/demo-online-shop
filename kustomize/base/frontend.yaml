@@ -26,6 +26,7 @@ spec:
     metadata:
       labels:
         app: frontend
+        app.jellycloud.io/name: frontend
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
@@ -114,7 +115,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: frontend
+    app.jellycloud.io/name: frontend
   ports:
   - name: http
     port: 80
@@ -129,7 +130,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: frontend
+    app.jellycloud.io/name: frontend
   ports:
   - name: http
     port: 80

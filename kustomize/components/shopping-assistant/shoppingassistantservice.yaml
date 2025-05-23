@@ -26,6 +26,7 @@ spec:
     metadata:
       labels:
         app: shoppingassistantservice
+        app.jellycloud.io/name: shoppingassistantservice
     spec:
       serviceAccountName: shoppingassistantservice
       terminationGracePeriodSeconds: 5
@@ -81,7 +82,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: shoppingassistantservice
+    app.jellycloud.io/name: shoppingassistantservice
   ports:
   - name: http
     port: 80

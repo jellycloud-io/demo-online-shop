@@ -26,6 +26,7 @@ spec:
     metadata:
       labels:
         app: productcatalogservice
+        app.jellycloud.io/name: productcatalogservice
     spec:
       serviceAccountName: productcatalogservice
       terminationGracePeriodSeconds: 5
@@ -74,7 +75,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: productcatalogservice
+    app.jellycloud.io/name:  productcatalogservice
   ports:
   - name: grpc
     port: 3550

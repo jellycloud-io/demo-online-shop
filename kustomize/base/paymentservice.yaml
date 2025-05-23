@@ -26,6 +26,7 @@ spec:
     metadata:
       labels:
         app: paymentservice
+        app.jellycloud.io/name: paymentservice
     spec:
       serviceAccountName: paymentservice
       terminationGracePeriodSeconds: 5
@@ -74,7 +75,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: paymentservice
+    app.jellycloud.io/name: paymentservice
   ports:
   - name: grpc
     port: 50051
