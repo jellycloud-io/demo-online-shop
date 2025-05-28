@@ -32,11 +32,27 @@ patches:
 #             value: "jellycloud"
 #             effect: NoSchedule
 # currencyservice
+# - patch: |-
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     metadata:
+#       name: currencyservice
+#     spec:
+#       template:
+#         spec:
+#           nodeSelector:
+#             type: jelly-node
+#           tolerations:
+#           - key: virtual-kubelet.io/provider
+#             operator: "Equal"
+#             value: "jellycloud"
+#             effect: NoSchedule
+# emailservice - tracing, profiler
 - patch: |-
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: currencyservice
+      name: emailservice
     spec:
       template:
         spec:
@@ -47,102 +63,70 @@ patches:
             operator: "Equal"
             value: "jellycloud"
             effect: NoSchedule
-# # emailservice - tracing, profiler
-# - patch: |-
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     metadata:
-#       name: emailservice
-#     spec:
-#       template:
-#         spec:
-#           nodeSelector:
-#             type: jelly-node
-#           tolerations:
-#           - key: virtual-kubelet.io/provider
-#             operator: "Equal"
-#             value: "jellycloud"
-#             effect: NoSchedule
-# # paymentservice 
-# - patch: |-
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     metadata:
-#       name: paymentservice
-#     spec:
-#       template:
-#         spec:
-#           nodeSelector:
-#             type: jelly-node
-#           tolerations:
-#           - key: virtual-kubelet.io/provider
-#             operator: "Equal"
-#             value: "jellycloud"
-#             effect: NoSchedule
-# # productcatalogservice
-# - patch: |-
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     metadata:
-#       name: productcatalogservice
-#     spec:
-#       template:
-#         spec:
-#           nodeSelector:
-#             type: jelly-node
-#           tolerations:
-#           - key: virtual-kubelet.io/provider
-#             operator: "Equal"
-#             value: "jellycloud"
-#             effect: NoSchedule
-# # recommendationservice 
-# - patch: |-
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     metadata:
-#       name: recommendationservice
-#     spec:
-#       template:
-#         spec:
-#           nodeSelector:
-#             type: jelly-node
-#           tolerations:
-#           - key: virtual-kubelet.io/provider
-#             operator: "Equal"
-#             value: "jellycloud"
-#             effect: NoSchedule
-# #  shippingservice
-# - patch: |-
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     metadata:
-#       name: shippingservice
-#     spec:
-#       template:
-#         spec:
-#           nodeSelector:
-#             type: jelly-node
-#           tolerations:
-#           - key: virtual-kubelet.io/provider
-#             operator: "Equal"
-#             value: "jellycloud"
-#             effect: NoSchedule
-# # adservice
-# - patch: |-
-#     apiVersion: apps/v1
-#     kind: Deployment
-#     metadata:
-#       name: adservice
-#     spec:
-#       template:
-#         spec:
-#           nodeSelector:
-#             type: jelly-node
-#           tolerations:
-#           - key: virtual-kubelet.io/provider
-#             operator: "Equal"
-#             value: "jellycloud"
-#             effect: NoSchedule
+# paymentservice 
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: paymentservice
+    spec:
+      template:
+        spec:
+          nodeSelector:
+            type: jelly-node
+          tolerations:
+          - key: virtual-kubelet.io/provider
+            operator: "Equal"
+            value: "jellycloud"
+            effect: NoSchedule
+# recommendationservice 
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: recommendationservice
+    spec:
+      template:
+        spec:
+          nodeSelector:
+            type: jelly-node
+          tolerations:
+          - key: virtual-kubelet.io/provider
+            operator: "Equal"
+            value: "jellycloud"
+            effect: NoSchedule
+#  shippingservice
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: shippingservice
+    spec:
+      template:
+        spec:
+          nodeSelector:
+            type: jelly-node
+          tolerations:
+          - key: virtual-kubelet.io/provider
+            operator: "Equal"
+            value: "jellycloud"
+            effect: NoSchedule
+# adservice
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: adservice
+    spec:
+      template:
+        spec:
+          nodeSelector:
+            type: jelly-node
+          tolerations:
+          - key: virtual-kubelet.io/provider
+            operator: "Equal"
+            value: "jellycloud"
+            effect: NoSchedule
 # # cartservice
 # - patch: |-
 #     apiVersion: apps/v1
@@ -207,7 +191,7 @@ patches:
 #             operator: "Equal"
 #             value: "jellycloud"
 #             effect: NoSchedule
-# # productcatalogservice
+# productcatalogservice
 # - patch: |-
 #     apiVersion: apps/v1
 #     kind: Deployment
