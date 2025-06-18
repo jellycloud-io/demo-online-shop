@@ -26,7 +26,6 @@ spec:
     metadata:
       labels:
         app: recommendationservice
-        app.jellycloud.io/name: recommendationservice
     spec:
       serviceAccountName: recommendationservice
       terminationGracePeriodSeconds: 5
@@ -79,7 +78,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app.jellycloud.io/name: recommendationservice
+    app: recommendationservice
   ports:
   - name: grpc
     port: 8080
