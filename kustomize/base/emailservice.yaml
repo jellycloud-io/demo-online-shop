@@ -26,7 +26,6 @@ spec:
     metadata:
       labels:
         app: emailservice
-        app.jellycloud.io/name: emailservice    
     spec:
       serviceAccountName: emailservice
       terminationGracePeriodSeconds: 5
@@ -77,7 +76,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app.jellycloud.io/name: emailservice
+    app: emailservice
   ports:
   - name: grpc
     port: 5000

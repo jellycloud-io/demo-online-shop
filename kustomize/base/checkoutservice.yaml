@@ -26,7 +26,6 @@ spec:
     metadata:
       labels:
         app: checkoutservice
-        app.jellycloud.io/name: checkoutservice
     spec:
       serviceAccountName: checkoutservice
       securityContext:
@@ -45,7 +44,7 @@ spec:
             readOnlyRootFilesystem: true
           image: us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.2
           ports:
-          - containerPort: 5050
+            - containerPort: 5050
           readinessProbe:
             grpc:
               port: 5050
@@ -53,20 +52,20 @@ spec:
             grpc:
               port: 5050
           env:
-          - name: PORT
-            value: "5050"
-          - name: PRODUCT_CATALOG_SERVICE_ADDR
-            value: "productcatalogservice:3550"
-          - name: SHIPPING_SERVICE_ADDR
-            value: "shippingservice:50051"
-          - name: PAYMENT_SERVICE_ADDR
-            value: "paymentservice:50051"
-          - name: EMAIL_SERVICE_ADDR
-            value: "emailservice:5000"
-          - name: CURRENCY_SERVICE_ADDR
-            value: "currencyservice:7000"
-          - name: CART_SERVICE_ADDR
-            value: "cartservice:7070"
+            - name: PORT
+              value: "5050"
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: "productcatalogservice:3550"
+            - name: SHIPPING_SERVICE_ADDR
+              value: "shippingservice:50051"
+            - name: PAYMENT_SERVICE_ADDR
+              value: "paymentservice:50051"
+            - name: EMAIL_SERVICE_ADDR
+              value: "emailservice:5000"
+            - name: CURRENCY_SERVICE_ADDR
+              value: "currencyservice:7000"
+            - name: CART_SERVICE_ADDR
+              value: "cartservice:7070"
           resources:
             requests:
               cpu: 100m
@@ -84,11 +83,11 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app.jellycloud.io/name: checkoutservice
+    app: checkoutservice
   ports:
-  - name: grpc
-    port: 5050
-    targetPort: 5050
+    - name: grpc
+      port: 5050
+      targetPort: 5050
 ---
 apiVersion: v1
 kind: ServiceAccount
