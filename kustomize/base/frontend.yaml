@@ -18,6 +18,7 @@ metadata:
   name: frontend
   labels:
     app: frontend
+    schedule.jellycloud.io/allow: "false"
 spec:
   selector:
     matchLabels:
@@ -26,6 +27,7 @@ spec:
     metadata:
       labels:
         app: frontend
+        schedule.jellycloud.io/allow: "false"
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
@@ -104,6 +106,15 @@ spec:
             limits:
               cpu: 200m
               memory: 128Mi
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: type
+                operator: NotIn
+                values:
+                - jelly-node
 ---
 apiVersion: v1
 kind: Service

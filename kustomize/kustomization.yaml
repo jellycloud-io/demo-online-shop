@@ -17,7 +17,7 @@ kind: Kustomization
 resources:
 - base
 components:
-- components/jelly-deployment
+# - components/jelly-deployment
 # - components/cymbal-branding
 # - components/google-cloud-operations
 # - components/memorystore
